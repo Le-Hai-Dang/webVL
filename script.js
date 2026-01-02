@@ -82,12 +82,8 @@ function initButtons() {
 
 // Stops management with drag-and-drop
 function initStops() {
-    // Store stops data
-    window.stopsData = [
-        { id: 1, address: '40 Tô Ký, phường 11, TpHCM', distance: '2.5 km' },
-        { id: 2, address: '60 Tô Ký, phường 11, TpHCM', distance: '3.7 km' },
-        { id: 3, address: '90 Tô Ký, phường 11, TpHCM', distance: '5.8 km' }
-    ];
+    // Store stops data - empty initially
+    window.stopsData = [];
 
     // Initialize drag and drop
     initDragAndDrop();
@@ -226,17 +222,35 @@ function updateStopNumbers() {
 
 // Update stops summary info
 function updateStopsSummary(count) {
-    const countElements = document.querySelectorAll('.stops-count, .summary-item strong');
-    if (countElements[0]) {
-        countElements[0].textContent = count + ' điểm';
+    const stopsCount = document.querySelector('.stops-count');
+    const emptyState = document.querySelector('.stops-empty-state');
+    const summary = document.querySelector('.stops-summary');
+    const optimizeBtn = document.querySelector('.btn-optimize');
+
+    // Update count badge
+    if (stopsCount) {
+        stopsCount.textContent = count + ' điểm';
     }
 
-    const summaryItems = document.querySelectorAll('.summary-item');
-    if (summaryItems[0]) {
-        const strongEl = summaryItems[0].querySelector('strong');
-        if (strongEl) {
-            strongEl.textContent = count + ' điểm dừng';
+    // Toggle empty state
+    if (emptyState) {
+        emptyState.style.display = count === 0 ? 'flex' : 'none';
+    }
+
+    // Toggle summary
+    if (summary) {
+        summary.style.display = count > 0 ? 'flex' : 'none';
+
+        // Update summary values
+        const summaryItems = summary.querySelectorAll('.summary-item strong');
+        if (summaryItems[0]) {
+            summaryItems[0].textContent = count + ' điểm dừng';
         }
+    }
+
+    // Toggle optimize button (only show when 2+ stops)
+    if (optimizeBtn) {
+        optimizeBtn.style.display = count >= 2 ? 'inline-flex' : 'none';
     }
 }
 
