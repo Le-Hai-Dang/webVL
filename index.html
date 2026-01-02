@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tuyến đường - Hệ thống quản lý vận chuyển">
+    <title>Tuyến đường</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header with Navigation -->
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <button class="nav-btn">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                    </svg>
+                </button>
+                <div class="nav-tabs">
+                    <a href="#" class="nav-tab">Công Ty</a>
+                    <a href="#" class="nav-tab">Công Ty</a>
+                    <a href="#" class="nav-tab">Dự án</a>
+                    <a href="#" class="nav-tab active">Tuyến đường</a>
+                    <a href="#" class="nav-tab">Tuyến phụ trách</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="notification-badge">
+                    <svg class="notification-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2">
+                        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    </svg>
+                    <span class="badge">85</span>
+                </div>
+                <div class="user-info">
+                    <div class="user-avatar">D</div>
+                    <span class="user-email">danghaile2003@gmail.com</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Sub Navigation -->
+    <div class="sub-nav">
+        <button class="sub-nav-btn">Mới</button>
+        <div class="sub-nav-breadcrumb">
+            <span>Tất cả tuyến đường</span>
+            <span class="breadcrumb-separator">/</span>
+            <span>Tạo mới</span>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Route Form Card -->
+        <div class="card route-form-card">
+            <div class="form-grid">
+                <div class="form-left">
+                    <div class="form-row">
+                        <label class="form-label">Tên dự án *</label>
+                        <div class="form-value">Giao hàng miền Nam</div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Tên tuyến *</label>
+                        <div class="form-value">Tuyến TpHCM</div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Mã tuyến</label>
+                        <div class="form-value">12391</div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Số km</label>
+                        <div class="form-value">160</div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Mô tả</label>
+                        <div class="form-value placeholder">Điền mô tả tuyến</div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Điểm nhận</label>
+                        <div class="form-value-with-icon">
+                            <span>1 Nguyễn Văn Khối, phường 12, TpHCM</span>
+                            <img src="img/begin-icon.png" alt="Điểm nhận" class="location-icon">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <label class="form-label">Điểm giao</label>
+                        <div class="form-value-with-icon">
+                            <span>19 Huỳnh Thị Hai, phường 11, TpHCM</span>
+                            <img src="img/final-icon.png" alt="Điểm giao" class="location-icon">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-right">
+                    <div class="form-row checkbox-row">
+                        <label class="form-label">Chính thức</label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Điểm dừng Section (Modern Timeline Design) -->
+            <div class="stops-section">
+                <div class="stops-header">
+                    <div class="stops-header-left">
+                        <svg class="stops-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <h3 class="section-title">ĐIỂM DỪNG</h3>
+                        <span class="stops-count">0 điểm</span>
+                    </div>
+                    <button class="btn-optimize" title="Tối ưu hóa thứ tự" style="display: none;">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="23 4 23 10 17 10"></polyline>
+                            <polyline points="1 20 1 14 7 14"></polyline>
+                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                        </svg>
+                        Tối ưu lộ trình
+                    </button>
+                </div>
+
+                <div class="stops-timeline">
+                    <!-- Stops will be added dynamically here -->
+                </div>
+
+                <!-- Empty State -->
+                <div class="stops-empty-state">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    <p>Chưa có điểm dừng nào</p>
+                    <span>Thêm điểm dừng để xây dựng lộ trình</span>
+                </div>
+
+                <!-- Add Stop Button -->
+                <button class="btn-add-stop">
+                    <div class="btn-add-stop-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="5" x2="12" y2="19"></line>
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                        </svg>
+                    </div>
+                    <span>Thêm điểm dừng mới</span>
+                </button>
+
+                <!-- Summary Info (hidden when no stops) -->
+                <div class="stops-summary" style="display: none;">
+                    <div class="summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                        <span>Tổng: <strong>0 điểm dừng</strong></span>
+                    </div>
+                    <div class="summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        <span>Thời gian: <strong>~0 phút</strong></span>
+                    </div>
+                    <div class="summary-item">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 6L6 18M6 6l12 12"></path>
+                        </svg>
+                        <span>Quãng đường: <strong>0 km</strong></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="form-actions">
+                <button class="btn btn-secondary">QUAY LẠI</button>
+                <button class="btn btn-primary">CẬP NHẬT</button>
+            </div>
+        </div>
+
+        <!-- Map Section Card (Collapsible) -->
+        <div class="card map-card">
+            <div class="collapsible-header" id="mapToggle">
+                <h3 class="card-title">Bản đồ tuyến đường</h3>
+                <svg class="collapse-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+            <div class="collapsible-content" id="mapContent">
+                <div class="map-container">
+                    <img src="img/map-sample.png" alt="Bản đồ tuyến đường" class="map-image">
+                </div>
+            </div>
+        </div>
+
+        <!-- Coordinator Table Card -->
+        <div class="card coordinator-card">
+            <h3 class="card-title">Danh sách điều phối viên</h3>
+            <table class="coordinator-table">
+                <thead>
+                    <tr>
+                        <th>Họ tên</th>
+                        <th>Tên tài khoản</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Trương Thị Thảo Nguyênnn</td>
+                        <td>ttthaonguyen0911@gmail.com</td>
+                        <td class="action-cell">
+                            <button class="action-btn edit-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                    <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                                </svg>
+                            </button>
+                            <button class="action-btn delete-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="3 6 5 6 21 6"></polyline>
+                                    <path
+                                        d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                                    </path>
+                                </svg>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button class="btn-add-coordinator">
+                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+                THÊM ĐIỀU PHỐI VIÊN
+            </button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
