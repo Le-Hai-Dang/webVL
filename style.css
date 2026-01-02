@@ -892,6 +892,572 @@ body {
     height: 16px;
 }
 
+/* ========================================
+   ENHANCED TIMELINE DESIGN - with Sub-routes
+   ======================================== */
+.stops-section-new {
+    margin-top: 32px;
+    padding-top: 32px;
+    border-top: 2px solid #e8e8e8;
+}
+
+/* Stops Header */
+.stops-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    letter-spacing: 0.3px;
+}
+
+/* Stops Summary */
+.stops-summary {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 13px;
+    color: #666;
+}
+
+.summary-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.summary-icon {
+    width: 16px;
+    height: 16px;
+    color: #6b5b95;
+}
+
+.summary-divider {
+    color: #ddd;
+    font-weight: 300;
+}
+
+/* Timeline Container */
+.route-timeline-container {
+    background: #ffffff;
+    /* Solid white */
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 16px;
+}
+
+.route-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* ========================================
+   TIMELINE ITEM (Stop + Sub-route)
+   ======================================== */
+.timeline-item {
+    position: relative;
+    background: white;
+    /* Solid white background */
+    margin-bottom: 0;
+}
+
+/* Stop Row - Draggable */
+.stop-row {
+    display: grid;
+    grid-template-columns: auto 60px 1fr auto;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: white;
+    /* Solid white - fully opaque */
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    margin-bottom: 0;
+    cursor: grab;
+    transition: all 0.2s ease;
+    position: relative;
+    z-index: 2;
+    /* Above connector lines */
+}
+
+.stop-row:hover {
+    border-color: #6b5b95;
+    box-shadow: 0 2px 8px rgba(107, 91, 149, 0.12);
+    transform: translateY(-1px);
+    background: white;
+    /* Stay solid white on hover */
+    z-index: 3;
+    /* Ensure hover is on top */
+}
+
+.stop-row:active {
+    cursor: grabbing;
+}
+
+/* Drag Handle */
+.drag-handle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    color: #bbb;
+    cursor: grab;
+    transition: color 0.2s ease;
+}
+
+.drag-handle:hover {
+    color: #6b5b95;
+}
+
+.drag-handle svg {
+    width: 16px;
+    height: 16px;
+}
+
+/* Stop Marker - Simple unified style */
+.stop-marker {
+    width: 40px;
+    height: 40px;
+    background: #f5f5f5;
+    /* Light gray background */
+    border: 2px solid #333;
+    /* Dark border */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #333;
+    /* Dark text/icon */
+    font-size: 16px;
+    font-weight: 600;
+    flex-shrink: 0;
+    position: relative;
+}
+
+/* No color variations - all markers same style */
+.stop-marker.start,
+.stop-marker.end,
+.stop-marker.return,
+.stop-marker.waypoint {
+    background: #f5f5f5;
+    border: 2px solid #333;
+    box-shadow: none;
+}
+
+/* Stop Info */
+.stop-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.stop-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #6b5b95;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 2px;
+}
+
+.stop-address {
+    font-size: 14px;
+    font-weight: 400;
+    color: #999;
+    /* Gray to match hint/placeholder text */
+    line-height: 1.3;
+}
+
+/* Special style for return stop note */
+.stop-address.return-note {
+    color: #999;
+    font-size: 13px;
+}
+
+/* Style for filled addresses (user entered) */
+.stop-address.filled {
+    color: #333;
+    /* Black text for actual addresses */
+    font-weight: 500;
+}
+
+/* Stop Actions */
+.stop-actions {
+    display: flex;
+    gap: 6px;
+    /* Removed visibility: hidden so icons are always visible */
+}
+
+.stop-row:hover .stop-actions {
+    /* No change needed on hover */
+}
+
+.stop-action-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.stop-action-btn svg {
+    width: 14px;
+    height: 14px;
+}
+
+.stop-action-btn.edit {
+    background: #f5f5f5;
+    color: #666;
+}
+
+.stop-action-btn.edit:hover {
+    background: #6b5b95;
+    color: white;
+    transform: scale(1.1);
+}
+
+.stop-action-btn.delete {
+    background: transparent;
+    color: #888;
+    /* Neutral gray for close icon */
+    border: 1px solid transparent;
+}
+
+.stop-action-btn.delete:hover {
+    background: #fff1f0;
+    color: #ff4d4f;
+    /* Red on hover */
+    border-color: #ffccc7;
+    transform: scale(1.1);
+}
+
+.stop-action-btn.delete:hover {
+    background: #e74c3c;
+    color: white;
+    transform: scale(1.1);
+}
+
+/* ========================================
+   SUB-ROUTE SECTION
+   ======================================== */
+.sub-route {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px 10px 50px;
+    margin: 0 0 8px 0;
+    position: relative;
+    background: white;
+    /* Solid white background to prevent transparency */
+    z-index: 1;
+    /* Ensure it's above connector line */
+}
+
+/* Vertical Connector Line - Static background */
+.sub-route::before {
+    content: '';
+    position: absolute;
+    left: 32px;
+    top: -10px;
+    width: 8px;
+    height: calc(100% + 10px);
+    background: #6b5b95;
+    border-radius: 4px;
+    z-index: 0;
+}
+
+.timeline-item:last-child .sub-route::before {
+    background: #6b5b95;
+}
+
+/* Animated arrows moving down the line (Continuous flow) */
+.sub-route::after {
+    content: '';
+    position: absolute;
+    left: 28px;
+    /* Centered on the 8px line (32px + 4px center - 8px half-width) */
+    top: -10px;
+    width: 16px;
+    /* Width of the arrow pattern */
+    height: calc(100% + 10px);
+    /* SVG Data URI for Downward Chevron Icon */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 16px 16px;
+    /* Size of each arrow instance */
+    background-repeat: repeat-y;
+    /* Repeat vertically */
+    animation: flowArrows 1s linear infinite;
+    /* Continuous flow animation */
+    z-index: 1;
+    opacity: 0.9;
+}
+
+/* Keyframe for continuous flow */
+@keyframes flowArrows {
+    from {
+        background-position-y: 0;
+    }
+
+    to {
+        background-position-y: 16px;
+        /* Must match background-size height for seamless loop */
+    }
+}
+
+/* Sub-route Content */
+.sub-route-content {
+    flex: 1;
+    width: 100%;
+    /* Full width since no arrow */
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px 14px;
+    background: #fafafa;
+    /* Solid light gray */
+    border: 1px solid #e8e8e8;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #666;
+}
+
+.sub-route-label {
+    font-weight: 600;
+    color: #6b5b95;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    font-size: 10px;
+    min-width: 70px;
+}
+
+.sub-route-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.sub-route-distance {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.distance-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+}
+
+.distance-item.estimated {
+    color: #999;
+}
+
+.distance-item.actual {
+    color: #333;
+    font-weight: 600;
+}
+
+.distance-value {
+    font-weight: 600;
+}
+
+/* Editable Distance Input */
+.distance-input {
+    width: 50px;
+    padding: 3px 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.distance-input:hover {
+    border-color: #6b5b95;
+}
+
+.distance-input:focus {
+    outline: none;
+    border-color: #6b5b95;
+    box-shadow: 0 0 0 3px rgba(107, 91, 149, 0.1);
+}
+
+/* Edit Icon */
+.edit-icon {
+    width: 12px;
+    height: 12px;
+    color: #999;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.edit-icon:hover {
+    color: #6b5b95;
+}
+
+/* Time Estimate */
+.sub-route-time {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: #999;
+    font-size: 11px;
+}
+
+.sub-route-time svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* ========================================
+   ROUTE STATS
+   ======================================== */
+.route-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.stat-card {
+    padding: 14px;
+    background: #fafafa;
+    /* Solid light gray */
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.stat-label {
+    font-size: 10px;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+}
+
+.stat-value.primary {
+    color: #6b5b95;
+}
+
+.stat-value.difference {
+    color: #e74c3c;
+}
+
+.stat-value.difference.positive {
+    color: #27ae60;
+}
+
+/* ========================================
+   ADD STOP BUTTON
+   ======================================== */
+.btn-create-stop {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #6b5b95;
+    /* Solid purple */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+    display: flex;
+    box-shadow: 0 2px 8px rgba(107, 91, 149, 0.2);
+}
+
+.btn-create-stop:hover {
+    background: #5a4a7e;
+    /* Darker purple on hover */
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(107, 91, 149, 0.3);
+}
+
+.btn-create-stop:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-icon-plus {
+    width: 14px;
+    height: 14px;
+}
+
+/* ========================================
+   DRAG & DROP STATES
+   ======================================== */
+.sortable-ghost {
+    opacity: 1;
+    /* Fully visible - no transparency */
+    background: #f9f8fc !important;
+    /* Solid light purple */
+    border: 2px dashed #6b5b95 !important;
+}
+
+.sortable-drag {
+    opacity: 1 !important;
+    /* Fully visible */
+    background: white !important;
+    box-shadow: 0 8px 24px rgba(107, 91, 149, 0.3) !important;
+    transform: rotate(2deg);
+    cursor: grabbing !important;
+}
+
+.sortable-chosen {
+    background: white !important;
+    /* Solid white */
+    border-color: #6b5b95 !important;
+}
+
+/* Drag placeholder */
+.sortable-fallback {
+    border: 2px dashed #6b5b95 !important;
+    background: white !important;
+    /* Solid white */
+    opacity: 1 !important;
+}
+
+
 /* Responsive */
 @media (max-width: 768px) {
     .navigation {

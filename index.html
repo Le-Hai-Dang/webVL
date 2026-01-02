@@ -86,20 +86,7 @@
                         <label class="form-label">Mô tả</label>
                         <div class="form-value placeholder">Điền mô tả tuyến</div>
                     </div>
-                    <div class="form-row">
-                        <label class="form-label">Điểm nhận</label>
-                        <div class="form-value-with-icon">
-                            <span>1 Nguyễn Văn Khối, phường 12, TpHCM</span>
-                            <img src="img/begin-icon.png" alt="Điểm nhận" class="location-icon">
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <label class="form-label">Điểm giao</label>
-                        <div class="form-value-with-icon">
-                            <span>19 Huỳnh Thị Hai, phường 11, TpHCM</span>
-                            <img src="img/final-icon.png" alt="Điểm giao" class="location-icon">
-                        </div>
-                    </div>
+
                 </div>
                 <div class="form-right">
                     <div class="form-row checkbox-row">
@@ -112,75 +99,61 @@
                 </div>
             </div>
 
-            <!-- Điểm dừng Section (Modern Timeline Design) -->
-            <div class="stops-section">
+            <!-- Điểm dừng Section (Enhanced Timeline Design with Sub-routes) -->
+            <div class="stops-section-new">
                 <div class="stops-header">
-                    <div class="stops-header-left">
-                        <svg class="stops-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <h3 class="section-title">ĐIỂM DỪNG</h3>
-                        <span class="stops-count">0 điểm</span>
+                    <h3 class="section-title">Điểm và tuyến con</h3>
+                    <div class="stops-summary" id="stopsSummary">
+                        <span class="summary-item">
+                            <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                            <span id="stopsCount">2 điểm</span>
+                        </span>
+                        <span class="summary-divider">|</span>
+                        <span class="summary-item">
+                            <svg class="summary-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                            </svg>
+                            <span id="subRoutesCount">2 tuyến con</span>
+                        </span>
                     </div>
-                    <button class="btn-optimize" title="Tối ưu hóa thứ tự" style="display: none;">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="23 4 23 10 17 10"></polyline>
-                            <polyline points="1 20 1 14 7 14"></polyline>
-                            <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
-                        </svg>
-                        Tối ưu lộ trình
-                    </button>
                 </div>
 
-                <div class="stops-timeline">
-                    <!-- Stops will be added dynamically here -->
+                <!-- Enhanced Timeline with Drag & Drop -->
+                <div class="route-timeline-container">
+                    <div class="route-timeline" id="routeTimeline">
+                        <!-- Timeline items will be rendered by JavaScript -->
+                    </div>
                 </div>
 
-                <!-- Empty State -->
-                <div class="stops-empty-state">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <p>Chưa có điểm dừng nào</p>
-                    <span>Thêm điểm dừng để xây dựng lộ trình</span>
+                <!-- Total Stats -->
+                <div class="route-stats" id="routeStats">
+                    <div class="stat-card">
+                        <div class="stat-label">Tổng ước lượng</div>
+                        <div class="stat-value" id="totalEstimated">0 km</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Tổng thực tế</div>
+                        <div class="stat-value primary" id="totalActual">0 km</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Chênh lệch</div>
+                        <div class="stat-value difference" id="totalDifference">0 km (0%)</div>
+                    </div>
                 </div>
 
                 <!-- Add Stop Button -->
-                <button class="btn-add-stop">
-                    <div class="btn-add-stop-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="5" x2="12" y2="19"></line>
-                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                        </svg>
-                    </div>
-                    <span>Thêm điểm dừng mới</span>
+                <button class="btn-create-stop" id="btnCreateStop">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                    TẠO ĐIỂM DỪNG
                 </button>
-
-                <!-- Summary Info (hidden when no stops) -->
-                <div class="stops-summary" style="display: none;">
-                    <div class="summary-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                            <circle cx="12" cy="10" r="3"></circle>
-                        </svg>
-                        <span>Tổng: <strong>0 điểm dừng</strong></span>
-                    </div>
-                    <div class="summary-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polyline points="12 6 12 12 16 14"></polyline>
-                        </svg>
-                        <span>Thời gian: <strong>~0 phút</strong></span>
-                    </div>
-                    <div class="summary-item">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 6L6 18M6 6l12 12"></path>
-                        </svg>
-                        <span>Quãng đường: <strong>0 km</strong></span>
-                    </div>
-                </div>
             </div>
 
             <!-- Action Buttons -->
@@ -248,6 +221,9 @@
             </button>
         </div>
     </main>
+
+    <!-- SortableJS for Drag & Drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.1/Sortable.min.js"></script>
 
     <script src="script.js"></script>
 </body>
