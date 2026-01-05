@@ -1,0 +1,718 @@
+// ========================================
+// DATA - Routes List
+// ========================================
+
+const routesData = [
+    {
+        id: 1,
+        name: 'check add route 3112',
+        code: '3112',
+        projectName: 'tester test import',
+        projectCode: '19AFD5ED829',
+        companyName: 'CÔNG TY CỔ PHẦN THƯƠNG MẠI VÀ DỊCH VỤ VẬN TẢI NA...',
+        companyCode: 'NAKC',
+        isOfficial: true
+    },
+    {
+        id: 2,
+        name: 'task 674',
+        code: 'TEST674',
+        projectName: 'Check task 674',
+        projectCode: '19B6DA4395C',
+        companyName: 'công ty new new',
+        companyCode: '123123123',
+        isOfficial: true
+    },
+    {
+        id: 3,
+        name: 'HASAKI AN PHÚ',
+        code: 'ANPHU',
+        projectName: 'HASAKI BD',
+        projectCode: '19B59E3029C',
+        companyName: 'HASAKI',
+        companyCode: 'HSKC',
+        isOfficial: true
+    },
+    {
+        id: 4,
+        name: 'Logistic Long An Tây Ninh',
+        code: '232432',
+        projectName: 'Dự án Miền Tây',
+        projectCode: '19B54C32BEA',
+        companyName: 'Công ty Nga test KH5',
+        companyCode: 'COTYNG14',
+        isOfficial: true
+    },
+    {
+        id: 5,
+        name: 'nga test compare chi phí',
+        code: '19B548F0360',
+        projectName: 'a',
+        projectCode: '19932671DBE',
+        companyName: 'Công ty Nga test KH4',
+        companyCode: 'COTYNG81',
+        isOfficial: true
+    },
+    {
+        id: 6,
+        name: 'TUYẾN LONG THÀNH AN GIANG',
+        code: '19B35CAA2CA',
+        projectName: 'Dự án Logistic',
+        projectCode: '19B35C9AB5F',
+        companyName: 'Công ty Nga test KH3',
+        companyCode: 'COTYNG42',
+        isOfficial: true
+    },
+    {
+        id: 7,
+        name: 'TUYẾN LONG THÀNH SÀI GÒN',
+        code: '34434',
+        projectName: 'Dự án Logistic',
+        projectCode: '19B35C9AB5F',
+        companyName: 'Công ty Nga test KH3',
+        companyCode: 'COTYNG42',
+        isOfficial: true
+    },
+    {
+        id: 8,
+        name: 'Chuyển hàng từ Lê Quang Định',
+        code: '19B35752OF9',
+        projectName: 'Vận chuyển hàng từ TPHCM - D21',
+        projectCode: '19B35747553',
+        companyName: 'CÔNG TY NEW SHIPPING',
+        companyCode: 'NEWSHIP',
+        isOfficial: true
+    },
+    {
+        id: 9,
+        name: 'py test tuyn duog',
+        code: '19B35137C0B',
+        projectName: 'py test kh',
+        projectCode: '19B3512BE83',
+        companyName: 'CÔNG TY TNHH VẬN TẢI THINH PHÁT HCM',
+        companyCode: 'xcccc',
+        isOfficial: true
+    },
+    {
+        id: 10,
+        name: 'TEST 1',
+        code: '19B302DEC90',
+        projectName: 'Giao hàng 1',
+        projectCode: '19932FAA4C0',
+        companyName: 'CÔNG TY TNHH TNTEST',
+        companyCode: '091100',
+        isOfficial: true
+    },
+    {
+        id: 11,
+        name: 'TEST 1',
+        code: '19B302D34B5',
+        projectName: 'Giao hàng 1',
+        projectCode: '19932FAA4C0',
+        companyName: 'CÔNG TY TNHH TNTEST',
+        companyCode: '091100',
+        isOfficial: true
+    },
+    {
+        id: 12,
+        name: 'ADD TUYẾN TAM',
+        code: '19B2BAAD23B',
+        projectName: 'Phuc Yen test',
+        projectCode: '19B2AC9B8B3',
+        companyName: 'CÔNG TY DLH',
+        companyCode: 'DLH',
+        isOfficial: true
+    }
+];
+
+// ========================================
+// ROUTE DETAIL DATA (Synced with detail screen)
+// Same structure as script.js
+// ========================================
+
+const routeDetailData = {
+    // 5 điểm: Bắt đầu + 2 Điểm dừng + Đích đến + Quay về
+    stops: [
+        {
+            id: 'stop-start',
+            label: 'Điểm bắt đầu',
+            address: 'Sân bay Tân Sơn Nhất',
+            fullAddress: 'Sân bay Tân Sơn Nhất, Tân Bình, TP.HCM',
+            type: 'start',
+            required: true,
+            editable: true
+        },
+        {
+            id: 'stop-1',
+            label: 'ĐIỂM DỪNG 1',
+            address: 'Chợ Bến Thành',
+            fullAddress: 'Chợ Bến Thành, Đ. Lê Lợi, Bến Thành, Quận 1, TP.HCM',
+            type: 'waypoint',
+            required: false,
+            editable: true
+        },
+        {
+            id: 'stop-2',
+            label: 'ĐIỂM DỪNG 2',
+            address: 'Landmark 81',
+            fullAddress: 'Landmark 81, 720A Đ. Điện Biên Phủ, Bình Thạnh, TP.HCM',
+            type: 'waypoint',
+            required: false,
+            editable: true
+        },
+        {
+            id: 'stop-end',
+            label: 'Đích đến',
+            address: 'Thảo Cầm Viên',
+            fullAddress: 'Thảo Cầm Viên Sài Gòn, 2 Nguyễn Bỉnh Khiêm, Quận 1, TP.HCM',
+            type: 'end',
+            required: true,
+            editable: true
+        },
+        {
+            id: 'stop-return',
+            label: 'QUAY VỀ',
+            address: '',
+            fullAddress: 'Quay về điểm bắt đầu',
+            type: 'return',
+            required: true,
+            editable: false,
+            autoGenerated: true
+        }
+    ],
+
+    // 4 sub-routes nối các điểm
+    subRoutes: [
+        {
+            id: 'subroute-1',
+            fromStopId: 'stop-start',
+            toStopId: 'stop-1',
+            estimatedDistance: 7.5,
+            actualDistance: 8.2,
+            estimatedTime: 25
+        },
+        {
+            id: 'subroute-2',
+            fromStopId: 'stop-1',
+            toStopId: 'stop-2',
+            estimatedDistance: 4.2,
+            actualDistance: 4.5,
+            estimatedTime: 15
+        },
+        {
+            id: 'subroute-3',
+            fromStopId: 'stop-2',
+            toStopId: 'stop-end',
+            estimatedDistance: 2.8,
+            actualDistance: 3.1,
+            estimatedTime: 10
+        },
+        {
+            id: 'subroute-4',
+            fromStopId: 'stop-end',
+            toStopId: 'stop-return',
+            estimatedDistance: 6.5,
+            actualDistance: 7.0,
+            estimatedTime: 20
+        }
+    ]
+};
+
+// ========================================
+// UTILITY FUNCTIONS
+// ========================================
+
+/**
+ * Tính tổng khoảng cách từ sub-routes
+ */
+function calculateTotalDistance(subRoutes, field = 'actualDistance') {
+    return subRoutes.reduce((total, route) => total + route[field], 0);
+}
+
+/**
+ * Tính chênh lệch giữa khoảng cách thực tế và ước lượng
+ */
+function calculateDifference(actual, estimated) {
+    const diff = actual - estimated;
+
+    // Tránh chia cho 0
+    let percentage;
+    if (estimated === 0) {
+        percentage = actual === 0 ? '0.0' : '100.0';
+    } else {
+        percentage = ((diff / estimated) * 100).toFixed(1);
+    }
+
+    const sign = diff >= 0 ? '+' : '';
+    return {
+        value: diff,
+        text: `${sign}${diff.toFixed(1)} km (${sign}${percentage}%)`,
+        isPositive: diff < 0
+    };
+}
+
+// ========================================
+// RENDER FUNCTIONS
+// ========================================
+
+/**
+ * Render the routes table
+ */
+function renderRoutesTable() {
+    const tbody = document.getElementById('routesTableBody');
+    if (!tbody) return;
+
+    tbody.innerHTML = routesData.map(route => createRouteRow(route)).join('');
+}
+
+/**
+ * Create a single row for the table
+ */
+function createRouteRow(route) {
+    return `
+        <tr data-route-id="${route.id}" onclick="handleRowClick(${route.id})">
+            <td class="col-name">${route.name}</td>
+            <td class="col-code">${route.code}</td>
+            <td class="col-project-name">${route.projectName}</td>
+            <td class="col-project-code">${route.projectCode}</td>
+            <td class="col-company-name">${route.companyName}</td>
+            <td class="col-company-code">${route.companyCode}</td>
+            <td class="col-status">
+                <span class="status-indicator ${route.isOfficial ? 'active' : 'inactive'}"></span>
+            </td>
+            <td class="col-actions">
+                <div class="actions-menu">
+                    <button class="actions-btn" onclick="event.stopPropagation(); toggleActionsMenu(this, ${route.id})">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <circle cx="12" cy="5" r="2"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                            <circle cx="12" cy="19" r="2"></circle>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu" id="dropdown-${route.id}">
+                        <button class="dropdown-item view" onclick="event.stopPropagation(); openRouteDetailModal(${route.id})">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                            Xem chi tiết
+                        </button>
+                        <button class="dropdown-item delete" onclick="event.stopPropagation(); deleteRoute(${route.id})">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                            Xoá
+                        </button>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    `;
+}
+
+// ========================================
+// MODAL FUNCTIONS
+// ========================================
+
+let currentRouteId = null;
+
+/**
+ * Open route detail modal
+ */
+function openRouteDetailModal(routeId) {
+    currentRouteId = routeId;
+    const route = routesData.find(r => r.id === routeId);
+    if (!route) return;
+
+    // Update modal header
+    document.getElementById('modalRouteTitle').textContent = route.name;
+
+    // Update summary
+    updateModalSummary();
+
+    // Render timeline (same structure as detail page)
+    renderModalTimeline();
+
+    // Render stats (same structure as detail page)
+    renderModalStats();
+
+    // Show modal
+    const modal = document.getElementById('routeDetailModal');
+    modal.classList.add('active');
+
+    // Prevent body scroll
+    document.body.style.overflow = 'hidden';
+
+    console.log(`📍 Opened detail modal for route: ${route.name}`);
+}
+
+/**
+ * Close route detail modal
+ */
+function closeRouteDetailModal() {
+    const modal = document.getElementById('routeDetailModal');
+    modal.classList.remove('active');
+
+    // Restore body scroll
+    document.body.style.overflow = '';
+
+    currentRouteId = null;
+    console.log('🔒 Closed detail modal');
+}
+
+/**
+ * Update summary counts in modal - same as detail page
+ */
+function updateModalSummary() {
+    const stopsCount = document.getElementById('modalStopsCount');
+    const subRoutesCount = document.getElementById('modalSubRoutesCount');
+
+    if (stopsCount) {
+        // Chỉ đếm stops thật (không tính return)
+        const actualStops = routeDetailData.stops.filter(s => s.type !== 'return');
+        stopsCount.textContent = `${actualStops.length} điểm`;
+    }
+
+    if (subRoutesCount) {
+        subRoutesCount.textContent = `${routeDetailData.subRoutes.length} tuyến con`;
+    }
+}
+
+/**
+ * Render stats in modal - same structure as detail page
+ */
+function renderModalStats() {
+    const container = document.getElementById('modalRouteStats');
+
+    const totalEstimated = calculateTotalDistance(routeDetailData.subRoutes, 'estimatedDistance');
+    const totalActual = calculateTotalDistance(routeDetailData.subRoutes, 'actualDistance');
+    const difference = calculateDifference(totalActual, totalEstimated);
+
+    container.innerHTML = `
+        <div class="stat-card">
+            <div class="stat-label">Tổng ước lượng</div>
+            <div class="stat-value">${totalEstimated.toFixed(1)} km</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Tổng thực tế</div>
+            <div class="stat-value primary">${totalActual.toFixed(1)} km</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Chênh lệch</div>
+            <div class="stat-value difference ${difference.isPositive ? 'positive' : ''}">${difference.text}</div>
+        </div>
+    `;
+}
+
+/**
+ * Render timeline in modal - same structure as detail page
+ */
+function renderModalTimeline() {
+    const container = document.getElementById('modalTimeline');
+    container.innerHTML = '';
+
+    routeDetailData.stops.forEach((stop, index) => {
+        const timelineItem = document.createElement('div');
+        timelineItem.className = 'timeline-item';
+        timelineItem.dataset.stopId = stop.id;
+
+        // Stop row - same as detail page
+        const stopRow = createModalStopRow(stop, index);
+        timelineItem.appendChild(stopRow);
+
+        // Sub-route (if not last stop) - same as detail page
+        if (index < routeDetailData.stops.length - 1) {
+            const nextStop = routeDetailData.stops[index + 1];
+            const subRoute = routeDetailData.subRoutes.find(
+                sr => sr.fromStopId === stop.id && sr.toStopId === nextStop.id
+            );
+
+            if (subRoute) {
+                const subRouteEl = createModalSubRoute(subRoute, stop, nextStop);
+                timelineItem.appendChild(subRouteEl);
+            }
+        }
+
+        container.appendChild(timelineItem);
+    });
+}
+
+/**
+ * Create stop row for modal - same structure as detail page
+ */
+function createModalStopRow(stop, index) {
+    const row = document.createElement('div');
+    row.className = 'stop-row';
+    row.dataset.stopId = stop.id;
+
+    // Marker content: Số cho stops thường, Icon cho return
+    let markerContent;
+    if (stop.type === 'return') {
+        markerContent = `
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width: 20px; height: 20px;">
+                <polyline points="1 4 1 10 7 10"></polyline>
+                <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path>
+            </svg>
+        `;
+    } else {
+        markerContent = index + 1;
+    }
+
+    // Address class
+    let addressClass = 'stop-address';
+    if (stop.type === 'return') {
+        addressClass += ' return-note';
+    } else if (stop.address) {
+        addressClass += ' filled';
+    }
+
+    row.innerHTML = `
+        <!-- Stop Marker -->
+        <div class="stop-marker">${markerContent}</div>
+        
+        <!-- Stop Info -->
+        <div class="stop-info">
+            <div class="stop-label">${stop.label}</div>
+            <div class="${addressClass}">${stop.fullAddress}</div>
+        </div>
+    `;
+
+    return row;
+}
+
+/**
+ * Create sub-route element for modal - same structure as detail page
+ */
+function createModalSubRoute(subRoute, fromStop, toStop) {
+    const div = document.createElement('div');
+    div.className = 'sub-route';
+    div.dataset.subrouteId = subRoute.id;
+
+    div.innerHTML = `
+        <!-- Sub-route Content -->
+        <div class="sub-route-content">
+            <div class="sub-route-label">TUYẾN CON ${subRoute.id.replace('subroute-', '')}</div>
+            
+            <div class="sub-route-info">
+                <!-- Distance Info -->
+                <div class="sub-route-distance">
+                    <div class="distance-item estimated">
+                        <span>Ước lượng:</span>
+                        <span class="distance-value">${subRoute.estimatedDistance} km</span>
+                    </div>
+                    
+                    <span style="color: #ddd;">|</span>
+                    
+                    <div class="distance-item actual">
+                        <span>Thực tế:</span>
+                        <span class="distance-value">${subRoute.actualDistance} km</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+
+    return div;
+}
+
+// ========================================
+// DROPDOWN MENU FUNCTIONS
+// ========================================
+
+let activeDropdown = null;
+
+/**
+ * Toggle actions dropdown menu
+ */
+function toggleActionsMenu(button, routeId) {
+    const dropdown = document.getElementById(`dropdown-${routeId}`);
+
+    // Close any other open dropdown
+    if (activeDropdown && activeDropdown !== dropdown) {
+        activeDropdown.classList.remove('active');
+    }
+
+    dropdown.classList.toggle('active');
+    activeDropdown = dropdown.classList.contains('active') ? dropdown : null;
+}
+
+/**
+ * Close all dropdowns when clicking outside
+ */
+function closeAllDropdowns(event) {
+    if (activeDropdown && !event.target.closest('.actions-menu')) {
+        activeDropdown.classList.remove('active');
+        activeDropdown = null;
+    }
+}
+
+// ========================================
+// EVENT HANDLERS
+// ========================================
+
+/**
+ * Handle row click - navigate to route detail
+ */
+function handleRowClick(routeId) {
+    console.log(`Navigate to route detail: ${routeId}`);
+    // Navigate to the route detail/edit page
+    window.location.href = `index.html?route=${routeId}`;
+}
+
+/**
+ * Handle add route button click
+ */
+function handleAddRoute() {
+    console.log('Navigate to add new route');
+    // Navigate to the add new route page
+    window.location.href = 'index.html';
+}
+
+/**
+ * Delete route
+ */
+function deleteRoute(routeId) {
+    const route = routesData.find(r => r.id === routeId);
+    if (!route) return;
+
+    if (confirm(`Bạn có chắc chắn muốn xóa tuyến "${route.name}"?`)) {
+        // Remove from array
+        const index = routesData.findIndex(r => r.id === routeId);
+        if (index > -1) {
+            routesData.splice(index, 1);
+            renderRoutesTable();
+            console.log(`🗑️ Deleted route: ${route.name}`);
+        }
+    }
+
+    // Close dropdown
+    if (activeDropdown) {
+        activeDropdown.classList.remove('active');
+        activeDropdown = null;
+    }
+}
+
+/**
+ * Handle search input
+ */
+function handleSearch(event) {
+    const query = event.target.value.toLowerCase();
+    const filteredRoutes = routesData.filter(route =>
+        route.name.toLowerCase().includes(query) ||
+        route.code.toLowerCase().includes(query) ||
+        route.projectName.toLowerCase().includes(query) ||
+        route.companyName.toLowerCase().includes(query)
+    );
+
+    const tbody = document.getElementById('routesTableBody');
+    if (tbody) {
+        if (filteredRoutes.length > 0) {
+            tbody.innerHTML = filteredRoutes.map(route => createRouteRow(route)).join('');
+        } else {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="8" style="text-align: center; padding: 40px; color: #999;">
+                        Không tìm thấy kết quả phù hợp
+                    </td>
+                </tr>
+            `;
+        }
+    }
+}
+
+/**
+ * Handle import button click
+ */
+function handleImport() {
+    console.log('Import clicked');
+    alert('Import feature coming soon...');
+}
+
+/**
+ * Handle filter button click
+ */
+function handleFilter() {
+    console.log('Filter clicked');
+    alert('Filter feature coming soon...');
+}
+
+/**
+ * Navigate to edit from modal
+ */
+function handleModalEdit() {
+    if (currentRouteId) {
+        window.location.href = `index.html?route=${currentRouteId}`;
+    }
+}
+
+// ========================================
+// INITIALIZATION
+// ========================================
+
+document.addEventListener('DOMContentLoaded', function () {
+    console.log('🚀 Routes List App Initialized');
+
+    // Render the routes table
+    renderRoutesTable();
+
+    // Add event listeners
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('input', handleSearch);
+    }
+
+    const btnAddRoute = document.getElementById('btnAddRoute');
+    if (btnAddRoute) {
+        btnAddRoute.addEventListener('click', handleAddRoute);
+    }
+
+    const btnImport = document.querySelector('.btn-import');
+    if (btnImport) {
+        btnImport.addEventListener('click', handleImport);
+    }
+
+    const filterBtn = document.querySelector('.filter-btn');
+    if (filterBtn) {
+        filterBtn.addEventListener('click', handleFilter);
+    }
+
+    // Modal event listeners
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', closeRouteDetailModal);
+    }
+
+    const modalCancelBtn = document.getElementById('modalCancelBtn');
+    if (modalCancelBtn) {
+        modalCancelBtn.addEventListener('click', closeRouteDetailModal);
+    }
+
+    const modalEditBtn = document.getElementById('modalEditBtn');
+    if (modalEditBtn) {
+        modalEditBtn.addEventListener('click', handleModalEdit);
+    }
+
+    // Close modal on overlay click
+    const modalOverlay = document.getElementById('routeDetailModal');
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function (event) {
+            if (event.target === modalOverlay) {
+                closeRouteDetailModal();
+            }
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape') {
+            closeRouteDetailModal();
+        }
+    });
+
+    // Close dropdowns when clicking outside
+    document.addEventListener('click', closeAllDropdowns);
+
+    console.log(`📊 Loaded ${routesData.length} routes`);
+    console.log('✨ App ready!');
+});
